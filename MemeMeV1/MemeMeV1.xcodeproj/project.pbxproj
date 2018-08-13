@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1387C3621220768005EF718 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1387C3521220768005EF718 /* Meme.swift */; };
 		B1D8E7C520EFFC55002F88D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8E7C420EFFC55002F88D4 /* AppDelegate.swift */; };
 		B1D8E7C720EFFC55002F88D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8E7C620EFFC55002F88D4 /* ViewController.swift */; };
 		B1D8E7CA20EFFC55002F88D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D8E7C820EFFC55002F88D4 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B1387C3521220768005EF718 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		B1D8E7C120EFFC55002F88D4 /* MemeMeV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMeV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D8E7C420EFFC55002F88D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1D8E7C620EFFC55002F88D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				B1D8E7C420EFFC55002F88D4 /* AppDelegate.swift */,
+				B1387C3521220768005EF718 /* Meme.swift */,
 				B1D8E7C620EFFC55002F88D4 /* ViewController.swift */,
 				B1D8E7C820EFFC55002F88D4 /* Main.storyboard */,
 				B1D8E7CE20EFFC59002F88D4 /* Assets.xcassets */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1D8E7CD20EFFC55002F88D4 /* MemeMeV1.xcdatamodeld in Sources */,
+				B1387C3621220768005EF718 /* Meme.swift in Sources */,
 				B1D8E7C720EFFC55002F88D4 /* ViewController.swift in Sources */,
 				B1D8E7C520EFFC55002F88D4 /* AppDelegate.swift in Sources */,
 			);
