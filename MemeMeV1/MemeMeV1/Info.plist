@@ -4,8 +4,8 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) wants to use camera!</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string> $(PRODUCT_NAME) photo use</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>$(PRODUCT_NAME) wants to use your photos!</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

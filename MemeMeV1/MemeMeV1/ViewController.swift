@@ -119,7 +119,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func generateMemedImage() -> UIImage {
-        //hidde nav bar
+        //hide nav bar
         
         toolBar.isHidden = true
         
@@ -171,6 +171,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if success {
             self.save()
             self.dismiss(animated: true, completion: nil)
+            self.generateMemedImage()
             }
         }
         
