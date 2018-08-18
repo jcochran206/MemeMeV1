@@ -143,8 +143,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    
     @IBAction func pickImageFromCamera(_ sender: Any) {
-        if UIImagePickerController.isSourceTypeAvailable(.camera){
+        
+       if UIImagePickerController.isSourceTypeAvailable(.camera){
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera
@@ -152,10 +154,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }else{
             print("not available on device")
         }
-        
     }
     
     @IBAction func pickImage(_ sender: Any) {
+    
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
@@ -165,10 +167,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func shareButtonAction(_ sender: Any) {
         let memedImage = generateMemedImage()
         let activityController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        
         activityController.completionWithItemsHandler = { activity, success, items, error in
+            if success {
             self.save()
             self.dismiss(animated: true, completion: nil)
+            }
         }
         
         present(activityController, animated: true, completion: nil)
