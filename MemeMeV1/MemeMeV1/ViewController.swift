@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
-
+    
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
@@ -18,6 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var albumBtn: UIBarButtonItem!
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var navibar: UINavigationBar!
     
     let memeTextAttributes:[String: Any] = [
         NSAttributedStringKey.strokeColor.rawValue: UIColor.white,
@@ -41,7 +42,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         stylizeTextField(textField: topTextField)
         stylizeTextField(textField: bottomTextField)
         
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +64,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         }
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -120,7 +121,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func generateMemedImage() -> UIImage {
         //hide nav bar
-        
+        navibar.isHidden = true
         toolBar.isHidden = true
         
         // Render View To An Image
@@ -130,7 +131,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIGraphicsEndImageContext()
         
         //Show Toolbar and Navigation Bar
-        
+        navibar.isHidden = false
         toolBar.isHidden = false
         
         return memedImage
@@ -143,25 +144,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    func openImagePicker(source: UIImagePickerControllerSourceType){
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = source
+        present(picker, animated: true, completion: nil)
+    }
+    
     
     @IBAction func pickImageFromCamera(_ sender: Any) {
-        
-       if UIImagePickerController.isSourceTypeAvailable(.camera){
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-            present(imagePicker, animated: true, completion: nil)
-        }else{
-            print("not available on device")
-        }
+        openImagePicker(source: .camera)
     }
     
     @IBAction func pickImage(_ sender: Any) {
-    
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+        openImagePicker(source: .photoLibrary)
     }
     
     @IBAction func shareButtonAction(_ sender: Any) {
@@ -169,9 +165,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let activityController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         activityController.completionWithItemsHandler = { activity, success, items, error in
             if success {
-            self.save()
-            self.dismiss(animated: true, completion: nil)
-            self.generateMemedImage()
+                self.save()
+                self.dismiss(animated: true, completion: nil)
+                self.generateMemedImage()
             }
         }
         
